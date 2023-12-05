@@ -10,8 +10,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
-import ch.zli.m223.model.Category;
-import ch.zli.m223.model.Entry;
+import ch.zli.m223.model.Booking;
+import ch.zli.m223.model.Location;
 import ch.zli.m223.model.Tag;
 import io.quarkus.arc.profile.IfBuildProfile;
 import io.quarkus.runtime.StartupEvent;
@@ -27,15 +27,15 @@ public class IntegrationTestDataService {
   void generateTestData(@Observes StartupEvent event) {
 
     // Categories
-    var projectACategory = new Category();
+    var projectACategory = new Booking();
     projectACategory.setTitle("Project A");
     entityManager.persist(projectACategory);
 
-    var projectBCategory = new Category();
+    var projectBCategory = new Booking();
     projectBCategory.setTitle("Project B");
     entityManager.persist(projectBCategory);
 
-    var projectCCategory = new Category();
+    var projectCCategory = new Booking();
     projectCCategory.setTitle("Project C");
     entityManager.persist(projectCCategory);
 
@@ -53,21 +53,21 @@ public class IntegrationTestDataService {
     entityManager.persist(meetingTag);
 
     // Entries
-    var firstEntry = new Entry();
+    var firstEntry = new Location();
     firstEntry.setCategory(projectACategory);
     firstEntry.setTags(new HashSet<>(Arrays.asList(programmingTag, debuggingTag)));
     firstEntry.setCheckIn(LocalDateTime.now().minusHours(3));
     firstEntry.setCheckOut(LocalDateTime.now().minusHours(2));
     entityManager.persist(firstEntry);
 
-    var secondEntry = new Entry();
+    var secondEntry = new Location();
     secondEntry.setCategory(projectACategory);
     secondEntry.setTags(new HashSet<>(Arrays.asList(meetingTag)));
     secondEntry.setCheckIn(LocalDateTime.now().minusHours(2));
     secondEntry.setCheckOut(LocalDateTime.now().minusHours(1));
     entityManager.persist(secondEntry);
 
-    var thirdEntry = new Entry();
+    var thirdEntry = new Location();
     thirdEntry.setCategory(projectBCategory);
     thirdEntry.setTags(new HashSet<>(Arrays.asList(programmingTag)));
     thirdEntry.setCheckIn(LocalDateTime.now().minusHours(1));

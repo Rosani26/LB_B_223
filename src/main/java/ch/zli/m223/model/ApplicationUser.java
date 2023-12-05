@@ -1,19 +1,21 @@
 package ch.zli.m223.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
 
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
-@NamedQueries({
-  @NamedQuery(name = "ApplicationUser.findByEmail", query = "SELECT u FROM ApplicationUser u WHERE u.email = :email")
-})
+
 public class ApplicationUser {
 
   @Id
@@ -24,11 +26,21 @@ public class ApplicationUser {
   @Column(nullable = false, unique = true)
   private String email;
 
-  @Column(nullable = false)
+   @Column(nullable = false)
   private String password;
 
-  @Column
-  private String nickname;
+  @Column(nullable = false)
+  private String firstName;
+
+  @Column(nullable = false)
+  private String lastName;
+
+  @Column(nullable = false)
+  private String role;
+
+  @OneToMany(mappedBy = "applicationUser")
+  @JsonIgnore
+  private List<Booking> bookings;
 
   public Long getId() {
     return id;
@@ -54,11 +66,27 @@ public class ApplicationUser {
     this.password = password;
   }
 
-  public String getNickname() {
-    return nickname;
+   public String getFirstName() {
+    return firstName;
   }
 
-  public void setNickname(String nickname) {
-    this.nickname = nickname;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
+
+ public String getRole() {
+    return role;
+  }
+
+  public void setRole(String role) {
+    this.role = role;
   }
 }

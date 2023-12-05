@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
+import javax.validation.constraints.NotBlank;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -53,7 +54,7 @@ public class TagController {
     @DELETE
     @Operation(
         summary = "Deletes an tag.",
-        description = "Deletes an tag by its id."
+        description = "Deletes a tag by its id."
     )
     public void delete(@PathParam("id") Long id) {
         tagService.deleteTag(id);

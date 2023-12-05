@@ -1,6 +1,8 @@
 # Übungsprojekt: Punch Clock
 
-Punch Clock ist ein Zeiterfassungssystem, welches mit Quarkus entwickelt wird.
+Coworking Space ist ein Arbeitsplatz Mietsystem mit Spring Boot. Mit dieser Applikation können Arbeitsplätze gemietet werden. 
+Es gibt 3 verschiedene Rollen: Administrator, Mitglied und Besucher. Jede dieser Rollen haben bestimmte Rechte. Um Mitglied zu werden muss man sich einfach Registrieren.
+
 
 ## Erste Schritte
 

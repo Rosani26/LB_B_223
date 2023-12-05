@@ -28,7 +28,7 @@ public class Tag {
   @ManyToMany(mappedBy = "tags")
   @JsonIgnoreProperties("tags")
   @Fetch(FetchMode.JOIN)
-  private Set<Entry> entries;
+  private Set<Location> entries;
 
   public Long getId() {
     return id;
@@ -46,11 +46,11 @@ public class Tag {
     this.title = title;
   }
 
-  public Set<Entry> getEntries() {
+  public Set<Location> getEntries() {
     return entries;
   }
 
-  public void setEntries(Set<Entry> entries) {
+  public void setEntries(Set<Location> entries) {
     this.entries = entries;
   }
 }
