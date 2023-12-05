@@ -35,5 +35,5 @@ Die automatischen Tests können mit `./mvnw quarkus:test` ausgeführt werden. F�
 
 
 ## Anmerkungen und Änderungen gegenüber der Plannung
--> Basisprojekt ist das Punch Clock Projekt welches wir zuletzt angeschaut haben.
--> Hat abweichungen zur eigentlichen Plannung gegeben.
+- Basisprojekt ist das Punch Clock Projekt welches wir zuletzt angeschaut haben.
+- Hat abweichungen zur eigentlichen Plannung gegeben.
