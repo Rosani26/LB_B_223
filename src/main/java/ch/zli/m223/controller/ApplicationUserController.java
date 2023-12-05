@@ -69,4 +69,18 @@ public class ApplicationUserController {
   public ApplicationUser update(@PathParam("id") Long id, ApplicationUser user) {
       return userService.updateUser(id, user);
   }
+
+  @Path("/login")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    @Operation(
+      summary = "logs user mitglied and admin in", 
+      description = "is logging user and admin in"
+  )
+    @PermitAll
+    public String login(ApplicationUser applicationUser) {
+      return userService.loginAppUser(applicationUser.getEmail(), applicationUser.getPassword());
+    }
+
 }

@@ -1,4 +1,4 @@
-# Übungsprojekt: Punch Clock
+# LB-B_-M223 Coworking Space Projekt
 
 Coworking Space ist ein Arbeitsplatz Mietsystem mit Spring Boot. Mit dieser Applikation können Arbeitsplätze gemietet werden. 
 Es gibt 3 verschiedene Rollen: Administrator, Mitglied und Besucher. Jede dieser Rollen haben bestimmte Rechte. Um Mitglied zu werden muss man sich einfach Registrieren.
@@ -36,4 +36,4 @@ Die automatischen Tests können mit `./mvnw quarkus:test` ausgeführt werden. F�
 
 ## Anmerkungen und Änderungen gegenüber der Plannung
 -> Basisprojekt ist das Punch Clock Projekt welches wir zuletzt angeschaut haben
--> Schnittstellen nicht gleich wie 
+-> Schnittstellen nicht gleich wie in 

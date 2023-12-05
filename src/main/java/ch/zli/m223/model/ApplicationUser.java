@@ -37,7 +37,7 @@ public class ApplicationUser {
   private String lastName;
 
   @Column(nullable = false)
-  private String role;
+  private boolean admin;
 
   @OneToMany(mappedBy = "applicationUser")
   @JsonIgnore
@@ -83,13 +83,12 @@ public class ApplicationUser {
     this.lastName = lastName;
   }
 
- public String getRole() {
-    return role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
+  public boolean getAdmin() {
+		return admin;
+	}
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
+	}
 
   public List<Booking> getBooking() {
     return bookings;
@@ -97,6 +96,10 @@ public class ApplicationUser {
 
   public void setBooking() {
     this.bookings = new ArrayList<>();
+  }
+
+  public boolean admin() {
+    return false;
   }
   
 }

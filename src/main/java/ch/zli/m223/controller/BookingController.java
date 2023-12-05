@@ -21,8 +21,8 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import ch.zli.m223.model.Location;
 import ch.zli.m223.service.BookingService;
 
-@Path("/entries")
-@Tag(name = "Entries", description = "Handling of entries")
+@Path("/booking")
+@Tag(name = "booking", description = "Handling of booking")
 @RolesAllowed({ "User", "Admin" })
 public class BookingController {
 
@@ -31,7 +31,7 @@ public class BookingController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Index all entries.", description = "Returns a list of all entries.")
+    @Operation(summary = "Index all bookings.", description = "Returns a list of all bookings.")
     public List<Location> index() {
         return bookingService.findAll();
     }
@@ -46,7 +46,7 @@ public class BookingController {
 
     @Path("/{id}")
     @DELETE
-    @Operation(summary = "Deletes an Booking.", description = "Deletes an Booking by its id.")
+    @Operation(summary = "Deletes a Booking.", description = "Deletes an Booking by its id.")
     public void delete(@PathParam("id") Long id) {
         bookingService.deleteBooking(id);
     }
