@@ -23,7 +23,6 @@ import ch.zli.m223.service.ApplicationUserService;
 
 
 @Path("/applicationUsers")
-@Tag(name = "Users", description = "Handling of users")
 @RolesAllowed({ "User", "Admin" })
 public class ApplicationUserController {
   

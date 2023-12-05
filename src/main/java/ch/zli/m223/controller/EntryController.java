@@ -19,7 +19,7 @@ import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import ch.zli.m223.model.Location;
-import ch.zli.m223.service.EntryService;
+import ch.zli.m223.service.BookingService;
 
 @Path("/entries")
 @Tag(name = "Entries", description = "Handling of entries")
@@ -27,7 +27,7 @@ import ch.zli.m223.service.EntryService;
 public class EntryController {
 
     @Inject
-    EntryService entryService;
+    BookingService entryService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

@@ -1,5 +1,6 @@
 package ch.zli.m223.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -89,4 +90,13 @@ public class ApplicationUser {
   public void setRole(String role) {
     this.role = role;
   }
+
+  public List<Booking> getBooking() {
+    return bookings;
+  }
+
+  public void setBooking() {
+    this.bookings = new ArrayList<>();
+  }
+  
 }

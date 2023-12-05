@@ -1,4 +1,4 @@
-package ch.zli.m223;
+/* package ch.zli.m223;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -12,7 +12,6 @@ import javax.transaction.Transactional;
 
 import ch.zli.m223.model.Booking;
 import ch.zli.m223.model.Location;
-import ch.zli.m223.model.Tag;
 import io.quarkus.arc.profile.IfBuildProfile;
 import io.quarkus.runtime.StartupEvent;
 
@@ -75,3 +74,4 @@ public class IntegrationTestDataService {
     entityManager.persist(thirdEntry);
   }
 }
+ */

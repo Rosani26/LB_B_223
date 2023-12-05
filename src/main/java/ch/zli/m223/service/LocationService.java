@@ -10,29 +10,29 @@ import javax.transaction.Transactional;
 import ch.zli.m223.model.Booking;
 
 @ApplicationScoped
-public class CategoryService {
+public class LocationService {
     @Inject
     EntityManager entityManager;
 
     @Transactional
-    public Booking createCategory(Booking category) {
-        return entityManager.merge(category);
+    public Booking createLocation(Booking location) {
+        return entityManager.merge(location);
     }
 
     @Transactional
-    public void deleteCategory(Long id) {
+    public void deleteLocation(Long id) {
         var entity = entityManager.find(Booking.class, id);
         entityManager.remove(entity);
     }
 
     @Transactional
-    public Booking updateCategory(Long id, Booking category) {
-        category.setId(id);
-        return entityManager.merge(category);
+    public Booking updateLocation(Long id, Booking location) {
+        location.setId(id);
+        return entityManager.merge(location);
     }
 
     public List<Booking> findAll() {
-        var query = entityManager.createQuery("FROM Category", Booking.class);
+        var query = entityManager.createQuery("FROM location", Booking.class);
         return query.getResultList();
     }
 }
