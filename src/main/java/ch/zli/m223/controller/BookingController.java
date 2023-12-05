@@ -24,38 +24,38 @@ import ch.zli.m223.service.BookingService;
 @Path("/entries")
 @Tag(name = "Entries", description = "Handling of entries")
 @RolesAllowed({ "User", "Admin" })
-public class EntryController {
+public class BookingController {
 
     @Inject
-    BookingService entryService;
+    BookingService bookingService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Operation(summary = "Index all entries.", description = "Returns a list of all entries.")
     public List<Location> index() {
-        return entryService.findAll();
+        return bookingService.findAll();
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    @Operation(summary = "Creates a new entry.", description = "Creates a new entry and returns the newly added entry.")
+    @Operation(summary = "Creates a new Booking.", description = "Creates a new Booking and returns the newly added Booking.")
     public Location create(@Valid Location entry) {
-        return entryService.createEntry(entry);
+        return bookingService.createBooking(entry);
     }
 
     @Path("/{id}")
     @DELETE
-    @Operation(summary = "Deletes an entry.", description = "Deletes an entry by its id.")
+    @Operation(summary = "Deletes an Booking.", description = "Deletes an Booking by its id.")
     public void delete(@PathParam("id") Long id) {
-        entryService.deleteEntry(id);
+        bookingService.deleteBooking(id);
     }
 
     @Path("/{id}")
     @PUT
-    @Operation(summary = "Updates an entry.", description = "Updates an entry by its id.")
+    @Operation(summary = "Updates an Booking.", description = "Updates an Booking by its id.")
     public Location update(@PathParam("id") Long id, @Valid Location entry) {
-        return entryService.updateEntry(id, entry);
+        return bookingService.updateBooking(id, entry);
     }
 
 }

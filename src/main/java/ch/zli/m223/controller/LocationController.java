@@ -23,10 +23,10 @@ import ch.zli.m223.service.LocationService;
 @Path("/categories")
 @Tag(name = "Categories", description = "Handling of categories")
 @RolesAllowed({ "User", "Admin" })
-public class CategoryController {
+public class LocationController {
 
     @Inject
-    LocationService categoryService;
+    LocationService locationService;
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -35,38 +35,38 @@ public class CategoryController {
         description = "Returns a list of all categories."
     )
     public List<Booking> index() {
-        return categoryService.findAll();
+        return locationService.findAll();
     }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Operation(
-        summary = "Creates a new category.", 
-        description = "Creates a new category and returns the newly added category."
+        summary = "Creates a new location.", 
+        description = "Creates a new location and returns the newly added location."
     )
-    public Booking create(Booking category) {
-       return categoryService.createCategory(category);
+    public Booking create(Booking location) {
+       return locationService.createLocation(location);
     }
 
     @Path("/{id}")
     @DELETE
     @Operation(
-        summary = "Deletes an category.",
-        description = "Deletes an category by its id."
+        summary = "Deletes an location.",
+        description = "Deletes an location by its id."
     )
     public void delete(@PathParam("id") Long id) {
-        categoryService.deleteCategory(id);
+        locationService.deleteLocation(id);
     }
 
     @Path("/{id}")
     @PUT
     @Operation(
-        summary = "Updates an category.",
-        description = "Updates an category by its id."
+        summary = "Updates a location.",
+        description = "Updates a location by its id."
     )
-    public Booking update(@PathParam("id") Long id, Booking category) {
-        return categoryService.updateCategory(id, category);
+    public Booking update(@PathParam("id") Long id, Booking location) {
+        return locationService.updateLocation(id, location);
     }
 
 }
