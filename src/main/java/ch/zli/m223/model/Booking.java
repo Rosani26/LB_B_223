@@ -17,6 +17,8 @@ import org.locationtech.jts.geom.Location;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import antlr.collections.List;
+
 @Entity
 public class Booking {
   @Id
