@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import ch.zli.m223.model.Booking;
+import ch.zli.m223.model.Location;
 
 @ApplicationScoped
 public class LocationService {
@@ -15,7 +16,7 @@ public class LocationService {
     EntityManager entityManager;
 
     @Transactional
-    public Booking createLocation(Booking location) {
+    public Location createLocation(Location location) {
         return entityManager.merge(location);
     }
 
@@ -25,14 +26,9 @@ public class LocationService {
         entityManager.remove(entity);
     }
 
-    @Transactional
-    public Booking updateLocation(Long id, Booking location) {
-        location.setId(id);
-        return entityManager.merge(location);
-    }
 
-    public List<Booking> findAll() {
-        var query = entityManager.createQuery("FROM location", Booking.class);
+    public List<Location> findAll() {
+        var query = entityManager.createQuery("FROM location", Location.class);
         return query.getResultList();
     }
 }
